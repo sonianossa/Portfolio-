@@ -1,0 +1,670 @@
+:root {
+  --theme-color: black;
+  --text-color: white;
+}
+
+@font-face {
+  font-family: IBM_Plex_Sans;
+  src: url(../fonts/IBM_Plex_Sans/IBMPlexSans-Medium.ttf);
+}
+@font-face {
+  font-family: Montserrat;
+  src: url(../fonts/Montserrat/Montserrat-Regular.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  padding-top: 4.375rem;
+  background-color: var(--theme-color);
+}
+.section[id]{
+  scroll-margin-top: 70px;
+}
+html{
+  scroll-behavior: smooth;/*Scroll con desplazamiento mas suave*/
+}
+/*Header y nav*/
+.menu__enlaces {
+  text-decoration: none;
+  color: var(--text-color);
+}
+.header__top {
+  box-shadow: 0 0.25rem 0.3125rem #eabe3f;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.877);
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 80;
+}
+.nav__top {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.625rem;
+  max-width: 61.25rem;
+  margin: 0 auto;
+}
+.menu__navegacion {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menu__navegacion--links {
+  padding: 0 0.9375rem;
+}
+.menu__enlaces {
+  color: rgb(165, 165, 165);
+  font-weight: 500;
+  line-height: 3.125rem;
+  text-transform: uppercase;
+  font-family: IBM_Plex_Sans;
+  position: relative;
+}
+.menu__enlaces::after {
+  content: "";
+  background-color: #eabe3f;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 0.25rem);
+  width: 100%;
+  height: 0.25rem;
+  border-radius: 0.3rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.menu__enlaces.seleccionado::after,
+.menu__enlaces:hover::after {
+  opacity: 0.8;
+}
+.menu__enlaces:hover {
+  color: rgb(224, 224, 224);
+}
+.menu__abrir,
+.menu__cerrar {
+  display: none;
+}
+.marca__nombre{
+  font-size: 1.3rem;
+}
+/*Responsive desktop*/
+@media (min-width: 949px) {
+  .menu__enlaces {
+    font-size: 1.45rem;
+  }
+  .perfil {
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    max-width: 980px;
+    margin: 0 auto;
+    align-items: center;
+  }
+  .perfil__contenido {
+    margin-bottom: 0;
+  }
+  .perfil__contenido--titulo {
+    font-size: 2.8rem;
+  }
+  .perfil__contenido--parrafo {
+    font-size: 1.3rem;
+    margin: 1.875rem 0;
+  }
+  .perfil__img {
+    width: 100%;
+    max-width: 21.875rem;
+    transform: scaleX(-1); /*cambio de la imagen rotacion*/
+  }
+  .perfil__imagen--linea {
+    background-color: #eabe3f;
+    height: 0.9375rem;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+  }
+  .btn__perfil {
+    font-size: 1.75rem;
+  }
+  .padding__horizontal {
+    padding-left: 4.375rem;
+    padding-right: 4.375rem;
+  }
+  .padding__vertical {
+    padding-top: 4.375rem;
+    padding-bottom: 4.375rem;
+  }
+  /*Pagina habilidades*/
+  .habilidades__titulo{
+    font-size: 2.8rem;
+  }
+  .habilidad{
+    font-size: 1.5rem;
+    margin: 1.25rem;
+  }
+  /*pagina sección proyectos*/
+  .proyectos__titulo{
+    font-size: 2.8rem;
+  }
+  .proyectos__contenido{
+    background-color: #eabe3f;
+  }
+
+  .izquierda{
+    left: -10%;
+  }
+  .derecha{
+    left: 7%; 
+  }
+  .proyectos__flex--contenido{
+    position: relative;
+    padding:2rem 1.5625rem;
+    max-width: 50.25rem;
+    margin: 0 auto;
+    display: flex;
+  }
+  .proyectos__imagenes{
+    border-radius: 0.8rem;
+    margin-bottom: 0.5rem;
+    margin-top: 4rem;
+    width: 80%;
+    height: 60%;
+    margin-right: 2rem;
+    margin-left: 1rem;
+  }
+  .proyectos__titulos{
+    font-size: 1.7rem;
+  }
+  .proyectos__texto{
+    font-size: 1.3rem;
+    margin-top: 0.5rem;
+  }
+  .btn__proyecto{
+    font-size: 1.3rem;
+  }
+  /*Página sección contacto*/
+.contacto{
+  padding: 4.375rem;
+  max-width: 61.25rem;
+  margin: 0 auto;
+  box-sizing: content-box;
+  grid: 
+  "titulo formulario" auto
+  "contenido formulario" 1fr/*se definen las filas del formulario */
+  "rrss formulario" auto/ 1fr 1fr /*las dos columnas van a tener un medio del espacio disponible es decir columnas de tamaño igual*/
+}
+.contacto__titulo{
+  font-size: 2.8rem;
+  text-align: left;
+  grid-area: titulo;
+}
+.contacto__contenido{
+  grid-area: contenido;
+}
+.contacto__formulario{
+  grid-area: formulario;
+}
+.contenedor__rrss{
+  grid-area: rrss;
+}
+.contacto__direccion{
+  font-size: 1.7rem
+}
+.contacto__direccion--texto{
+  font-size: 1.3rem;
+}
+.contacto__email{
+  font-size: 1.7rem
+}
+.contacto__email--texto{
+  font-size: 1.3rem;
+}
+.contacto__mensaje--texto{
+  font-size: 1.3rem;
+}
+.contacto__formulario--nombre{
+  font-size: 1.7rem
+}
+.contacto__formulario--email{
+  font-size: 1.7rem
+}
+.contacto__formulario--mensaje{
+  font-size: 1.7rem
+}
+.contacto__formulario--submit{
+  font-size: 1.5rem;
+}
+.fa-brands{
+  font-size: 2.6rem;
+}
+.fa-brands:hover{
+  filter:drop-shadow(0 0 20px white);
+}
+.rrss{
+  justify-content: flex-start;
+}
+}
+/*Responsive mobile*/
+@media (max-width: 950px) {
+  .menu__navegacion {
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.919);
+    height: 100%;
+    overflow-y: auto;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  .menu__enlaces::after {
+    content: none;
+  }
+  .menu__enlaces:hover,
+  .menu__enlaces .seleccionado {
+    color: #eabe3f;
+  }
+  .menu__navegacion--links {
+    padding: 0;
+  }
+  .menu__enlaces {
+    line-height: 4.375rem;
+    font-size: 1.5625rem;
+  }
+  .menu__abrir,
+  .menu__cerrar {
+    display: block;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  .menu__cerrar {
+    align-self: flex-end;
+    padding: 1.25rem 0.89rem;
+  }
+  .menu__abierto {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .menu__abrir:focus:not(:focus-visible),
+  .menu__cerrar:focus:not(:focus-visible) {
+    outline: none;
+  }
+  .fa-solid {
+    font-size: 2rem;
+  }
+  /*Página Perfil*/
+  .perfil {
+    text-align: center;
+  }
+  .perfil__contenido {
+    margin-bottom: 1.5625rem;
+  }
+  .perfil__contenido--titulo {
+    font-size: 1.875rem;
+    font-weight: bold;
+    margin: 0;
+    color: rgb(165, 165, 165);
+    font-family: IBM_Plex_Sans;
+  }
+  .perfil__contenido--parrafo {
+    color: var(--text-color);
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    max-width: 28.125rem;
+    margin: 1.25rem auto;
+  }
+  .perfil__img {
+    width: 80%;
+    max-width: 18.75rem;
+  }
+  .perfil__imagen {
+    position: relative;
+  }
+  .perfil__imagen--linea {
+    background-color: #eabe3f;
+    height: 0.9375rem;
+    position: absolute;
+    width: 100%;
+    max-width: 18.75rem;
+    left: 0;
+    bottom: 0;
+  }
+  .btn__perfil {
+    color: black;
+    background-color: #eabe3f;
+    border: none;
+    font-size: 1.25rem;
+    padding: 0.5em 1em;
+    border-radius: 0.3rem;
+    cursor: pointer;
+  }
+  .btn__perfil:hover {
+    filter: brightness(130%);
+  }
+  .padding__horizontal {
+    padding-left: 1.5625rem;
+    padding-right: 1.5625rem;
+  }
+  .padding__vertical {
+    padding-top: 1.5625rem;
+    padding-bottom: 1.5625rem;
+  }
+  /*pagina habilidades mobile*/
+
+  .habilidades__titulo{
+    font-size: 1.875rem;}
+  .habilidad{
+    margin: 0.625rem;
+  }
+  /*pagina proyectos*/
+  .proyectos__titulo{
+    font-size: 1.875rem;
+  }
+  .proyectos{
+  display: flex;
+  flex-direction: column;
+}
+  .proyectos__flex--contenido{
+  padding: 1.5625rem;
+  max-width: 31.25rem;
+  margin: 0 auto;
+}
+.proyectos__imagenes{
+  border-radius: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+.proyectos__titulos{
+  font-size: 1.5rem;
+}
+.proyectos__texto{
+  font-size: 1.125rem;
+}
+.btn__proyecto{
+  font-size: 1.1rem;
+}
+/*Página sección contacto*/
+.contacto{
+  padding: 25px;
+}
+.contacto__titulo{
+  font-size: 1.875rem;
+  text-align: center;
+}
+.contacto__direccion{
+  font-size: 1.2rem
+}
+.contacto__direccion--texto{
+  font-size: 1rem;
+}
+.contacto__email{
+  font-size: 1.2rem
+}
+.contacto__email--texto{
+  font-size: 1rem;
+}
+.contacto__mensaje--texto{
+  font-size: 1rem;
+}
+.contacto__formulario--nombre{
+  font-size: 1.2rem
+}
+.contacto__formulario--email{
+  font-size: 1.2rem
+}
+.contacto__formulario--mensaje{
+  font-size: 1.2rem
+}
+.contacto__formulario--submit{
+  font-size: 1.1rem;
+}
+.fa-brands{
+  font-size: 1.6rem;
+}
+.fa-brands:hover{
+  filter:drop-shadow(0 0 20px white);
+}
+.rrss{
+  justify-content: center;
+}
+}
+/*Logo*/
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.125rem;
+  font-family: IBM_Plex_Sans;
+  font-weight: 500;
+  text-decoration: none;
+  color: rgb(165, 165, 165);
+}
+/*Página Perfil*/
+.perfil {
+  text-align: center;
+}
+.perfil__contenido {
+  margin-bottom: 1.5625rem;
+}
+.perfil__contenido--titulo {
+  font-weight: bold;
+  margin: 0;
+  color: rgb(165, 165, 165);
+  font-family: IBM_Plex_Sans;
+}
+.perfil__contenido--parrafo {
+  color: var(--text-color);
+  font-family: Montserrat;
+  font-weight: 500;
+  line-height: 1.5;
+  max-width: 28.125rem;
+  margin: 1.25rem auto;
+}
+.perfil__imagen {
+  position: relative;
+}
+
+.btn__perfil {
+  color: black;
+  background-color: #eabe3f;
+  border: none;
+  font-size: 1.25rem;
+  padding: 0.5em 1em;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  font-family: IBM_Plex_Sans;
+  text-decoration: none;
+}
+.btn__perfil:hover {
+  filter: brightness(130%);
+}
+/*Pagina habilidades*/
+.habilidades{
+  max-width: 61.25rem;
+  margin: 0 auto;
+}
+.habilidades__titulo{
+  color: rgb(165, 165, 165);
+  font-family: IBM_Plex_Sans;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+}
+.habilidad{
+  color: var(--text-color);
+  font-family: Montserrat;
+  font-weight: 400;
+  box-shadow: 0 0.25rem 0.625rem #eabe3f;
+  border-radius: 2.625rem;
+  padding: 0.5em 0.7em;
+}
+.habilidades__lista{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0;
+  margin-top: 1.5rem;
+}
+/*pagina seccion proyectos*/
+
+.proyectos__contenido{
+  background-color: #eabe3f;
+}
+.proyectos__titulo{
+  color:var(--theme-color);
+  font-family:IBM_Plex_Sans;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center; 
+}
+.proyectos__titulos{
+  color: var(--theme-color);
+  font-family:IBM_Plex_Sans;
+  font-weight: bold;
+  line-height: 2.2rem;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.proyectos__texto{
+  color: var(--theme-color);
+  font-family: Montserrat;
+  line-height: 1.5;
+}
+.wave{
+  width: 100%;
+  position: relative;
+  top: 6px;
+}
+.wave__bottom{
+  transform: scaleY(-1);
+  top: -2px;
+}
+.btn__proyecto--contenedor{
+  justify-content: center;
+  display: flex;
+}
+
+.btn__proyecto{
+  color: #eabe3f;
+  background-color: rgba(0, 0, 0, 0.954);
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-family: IBM_Plex_Sans;
+  text-decoration: none;
+}
+.btn__proyecto:hover {
+  box-shadow: 0 0 14px white;;
+}
+.proyectos__imagenes{
+  box-shadow:  0 0.25rem 0.3125rem white;
+}
+.proyectos__imagenes--contenedor{
+  justify-content: center;
+  display: flex;
+}
+
+/*Página seccion contacto*/
+.contacto{
+  background-color: #eabe3f;
+  border-radius: 0.5rem;
+  display: grid;
+  gap: 25px;
+}
+.contacto__contenido,
+.contacto__formulario{
+  display: grid;
+  gap: 20px;
+}
+.contacto__contenido--grupo,
+.contacto__formulario--grupo{
+  display: grid;
+  gap: 3px;
+}
+
+.contacto__titulo{
+  font-family:IBM_Plex_Sans;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.contacto__direccion{
+  font-family: IBM_Plex_Sans;
+  line-height: 1.5;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.contacto__direccion--texto{
+  font-family: Montserrat;
+  line-height: 1.5;
+}
+.contacto__email{
+  font-family: IBM_Plex_Sans;
+  line-height: 1.5;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.contacto__email--texto{
+  font-family: Montserrat;
+  line-height: 1.5;
+}
+.contacto__mensaje--texto{
+  font-family: Montserrat;
+  line-height: 1.5;
+  font-weight: 600;
+}
+.contacto__formulario--nombre{
+  font-family: IBM_Plex_Sans;
+  line-height: 1.5;
+  font-weight: 500;
+}
+.contacto__formulario--email{
+  font-family: IBM_Plex_Sans;
+  line-height: 1.5;
+  font-weight: 500;
+}
+.contacto__formulario--mensaje{
+  font-family: IBM_Plex_Sans;
+  line-height: 1.5;
+  font-weight: 500;
+}
+.contacto__formulario--input,
+.contacto__formulario--textarea{
+  border-radius: 0.7rem;
+  border: none;
+  height: 30px;
+  padding: 5px 10px;
+}
+.contacto__formulario--textarea{
+  height: auto;
+  resize: vertical;
+}
+.contacto__formulario--submit{
+  color: #eabe3f;
+  background-color: rgba(0, 0, 0, 0.954);
+  border: 1px solid white;
+  padding: 0.5em 1em;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-family: IBM_Plex_Sans;
+}
+.contacto__formulario--submit:hover {
+  box-shadow: 0 0 14px white;
+}
+.rrss{
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
